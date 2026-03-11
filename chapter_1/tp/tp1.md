@@ -19,6 +19,7 @@ Client → API (Node.js) → Base de données (PostgreSQL)
 - Docker : emballer
 - Compose : relier
 
+---
 
 ## Étape 0 — Setup (Docker + Compose + VS Code)
 
@@ -126,17 +127,15 @@ Séparer configuration et image.
 Faire communiquer l’API avec la DB.
 
 ### À faire
-- Initialiser la base de données avec la table `notes`
+- Initialiser la base de données avec la table `notes` :
+  - `id` (serial / identity)
+  - `title` (text)
+  - `content` (text)
+  - `created_at` (timestamp)
 - Récupérer les variables d'environnement côté API pour faire communiquer l’API avec la DB
 
-Table : `notes`
-- `id` (serial / identity)
-- `title` (text)
-- `content` (text)
-- `created_at` (timestamp)
-
 ### Question de réflexion
-> Pourquoi la table `notes` n'existe plus au re-lunch ?
+> Pourquoi la table `notes` n'existe plus au re-lunch (après un `docker compose down`) ?
 
 
 ## Étape 6 — Persister les données avec un volume
@@ -167,6 +166,27 @@ cela supprime les données.
 > Pourquoi ne met-on pas les données directement dans le container ?
 > Quel composant est stateful ? Lequel est stateless ?
 
+## Étape 7 - Utiliser un fichier `.env`
+
+### Objectif
+Séparer clairement **le code**, **la configuration** et **les secrets**.
+
+### À faire
+- Créer un fichier `.env`
+- Y placer :
+  - `DB_HOST`
+  - `DB_USER`
+  - `DB_PASSWORD`
+  - etc.
+- Modifier `docker-compose.yml` pour charger ce fichier
+
+### Bonnes pratiques
+- Ne jamais versionner le fichier `.env`
+- Ajouter un fichier `.env.example` documenté
+
+### Question de réflexion
+> Pourquoi les secrets ne doivent-ils pas être dans le code ni dans le dépôt Git ?
+
 ---
 
 ## Ce que vous savez faire à la fin
@@ -177,6 +197,7 @@ cela supprime les données.
 - Observer ce qui tourne (ps/logs)
 - Expliquer pourquoi Kubernetes existe
 
+---
 
 ## Commandes utiles
 
