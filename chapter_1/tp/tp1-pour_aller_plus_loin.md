@@ -4,7 +4,7 @@
 Ces exercices sont **progressifs**.  
 Ils permettent d’approfondir le projet sans sortir du cadre Docker / Compose / DevOps.
 
-Ils ne sont pas obligatoires.
+Ils ne sont pas obligatoires, ils permettent cependant d'obtenir des points supplémentaires sur la note de participation.
 
 ## Robustesse (pensée DevOps)
 

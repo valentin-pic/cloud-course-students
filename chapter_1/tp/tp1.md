@@ -1,4 +1,4 @@
-# Fiche Atelier Étudiants – Projet fil rouge Docker & Compose (V2)
+# Fiche Atelier Étudiants – Projet Docker & Compose
 
 > **But de l’atelier** : construire pas à pas une application réelle (API + base de données) en utilisant Docker et Docker Compose, pour comprendre **les concepts**, pas juste les commandes.
 
@@ -237,6 +237,11 @@ docker compose logs -f api
 État des services Compose :
 ```bash
 docker compose ps
+```
+
+Supprimer un container (api) :
+```bash
+docker compose rm api
 ```
 
 Entrer dans un container (diagnostic) :
